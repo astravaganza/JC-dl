@@ -1,0 +1,7 @@
+Request_URL = "https://prod.media.jio.com/apis/common/v3/playbackrights/get/"
+MetaURL = "https://prod.media.jio.com/apis/common/v3/metamore/get/"
+ssotoken = ""
+uniqueID = ""
+groupName = ""
+
+
