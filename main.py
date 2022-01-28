@@ -75,7 +75,7 @@ except KeyError:
     sys.exit()
 print (f'Downloading: {content_name} | {metadata["year"]} | {metadata["language"]}')
 print (f'Subtitles available: {metadata["subtitle"]}')    
-fileName = f'{content_name}.{metadata["year"]}.WEB-DL-{group}'.replace(" ", ".")
+fileName = f'{content_name}.{metadata["year"]}.mp4'
 
 def get_streams(mpd):
     print ("Downloading A/V")
