@@ -59,7 +59,7 @@ except KeyError:
     print ("Incorrect/Malformed VideoID")
     sys.exit()
 print (f'Downloading: {content_name} | {metadata["year"]} | {metadata["language"]}')
-print (f'Subtitles available: {metadata["subtitle"]}')    
+# print (f'Subtitles available: {metadata["subtitle"]}')    
 fileName = f'{content_name}.{metadata["year"]}.mp4'
 
 def get_streams(m3u8):
