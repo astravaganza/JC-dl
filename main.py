@@ -62,9 +62,9 @@ print (f'Downloading: {content_name} | {metadata["year"]} | {metadata["language"
 print (f'Subtitles available: {metadata["subtitle"]}')    
 fileName = f'{content_name}.{metadata["year"]}.mp4'
 
-def get_streams(mpd):
+def get_streams(m3u8):
     print ("Downloading A/V")
-    os.system(f'{ytdl_path} mpd --allow-unplayable-formats --downloader aria2c --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings -P TEMP:{cachePath} -P HOME:{outputPath}')
+    os.system(f'{ytdl_path} {m3u8} --allow-unplayable-formats --downloader aria2c --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings -P TEMP:{cachePath} -P HOME:{outputPath}')
     os.rename(f'{outputPath}\chunklist [chunklist].mp4', fileName)
     print ("\nSuccessfully downloaded the stream!")
 
