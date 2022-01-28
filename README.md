@@ -17,8 +17,8 @@ This tool shall not be abused for purposes which are not archival or educational
 * Download yt-dlp (from https://github.com/yt-dlp/yt-dlp), aria2c (from https://aria2.github.io/) and the ffmpeg suite (from https://www.ffmpeg.org/download.html) and place the binaries in the root directory
 * Add your unique SSOtoken and uniqueID to `config.toml` (check below)
 * run `python main.py`
-* VideoID can be obtained from the Movie URL (for example: in https://www.jiocinema.com/movies/jaya-ganga?type=0&id=74f26cb06e0111ecb736133f7a349447, `74f26cb06e0111ecb736133f7a349447` is the VideoID).
-* Let yt-dlp and aria2c download the stream and check the `out` folder for the downloaded movie.
+* VideoID can be obtained from the Movie URL (for example: in https://www.jiocinema.com/movies/jaya-ganga?type=0&id=74f26cb06e0111ecb736133f7a349447, `74f26cb06e0111ecb736133f7a349447` is the VideoID). 
+* Let yt-dlp and aria2c download the stream (defaults to the most superior stream) and check the `out` folder for the downloaded movie.
 
 ### Adding config
 * Open JioCinema, ensure you are logged in. 
@@ -39,3 +39,4 @@ to the yt-dlp devs for basically solving the m3u8 parsing cause I can't write a 
 * Add subtitle support
 * Simplify the config process
 * Add logging
+* Add custom quality support
