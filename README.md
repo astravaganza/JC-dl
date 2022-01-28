@@ -33,7 +33,7 @@ This tool shall not be abused for purposes which are not archival or educational
 I'm really terrible at coding so consider this as the worst code. Please feel free to open PRs.
 
 ## Thanks
-to the yt-dlp devs for basically solving the m3u8 parsing cause I can't write a parser.
+to yt-dlp for basically solving the m3u8 parsing cause I can't write a parser.
 
 ### To-Do
 * Add subtitle support
