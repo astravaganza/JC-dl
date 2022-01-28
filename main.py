@@ -49,7 +49,6 @@ def mod_m3u8(url):
     mod = "/".join(lst)
     return mod
 
-
 def get_metadata(VideoID):
     response = requests.get (url= Meta_URL + VideoID)
     return json.loads(response.text)
@@ -69,9 +68,9 @@ fileName = f'{content_name}.{metadata["year"]}.mp4'
 
 def get_streams(mpd):
     print ("Downloading A/V")
-    os.system(ytdl_path + ' ' + mpd + ' --allow-unplayable-formats' + ' --downloader aria2c' + ' --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings -P TEMP:' + cachePath + ' -P HOME:' + outputPath)
+    os.system(f'{ytdl_path} mpd --allow-unplayable-formats --downloader aria2c --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings -P TEMP:{cachePath} -P HOME:{outputPath})
     os.rename(f'{outputPath}\chunklist [chunklist].mp4', fileName)
-    print ("Successfully downloaded the stream!")
+    print ("\nSuccessfully downloaded the stream!")
 
 m3u8_url = get_m3u8(manifest)
 mpd_url = get_mpd(manifest)
