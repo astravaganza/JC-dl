@@ -15,7 +15,7 @@ This tool shall not be abused for purposes which are not archival or educational
 ## Usage
 * Install python and run `pip install -r requirements.txt` in your shell
 * Download yt-dlp (from https://github.com/yt-dlp/yt-dlp), aria2c (from https://aria2.github.io/) and the ffmpeg suite (from https://www.ffmpeg.org/download.html) and place the binaries in the root directory
-* Add your unique SSOtoken and uniqueID to `config.toml` (check below)
+* Add your unique SSOtoken and uniqueID to `config.toml` (check [below](https://github.com/astravaganza/JC_dl#adding-config))
 * run `python main.py`
 * VideoID can be obtained from the Movie URL (for example: in https://www.jiocinema.com/movies/jaya-ganga?type=0&id=74f26cb06e0111ecb736133f7a349447, `74f26cb06e0111ecb736133f7a349447` is the VideoID). 
 * Let yt-dlp and aria2c download the stream (defaults to the most superior stream) and check the `out` folder for the downloaded movie.
