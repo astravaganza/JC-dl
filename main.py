@@ -17,7 +17,7 @@ config = toml.load("config.toml")
 ssotoken = config ["ssotoken"]
 uniqueID = config ["uniqueID"]
 Request_URL = config ["Request_URL"]
-Meta_URL = config ["Meta_URL"]
+Meta_URL = config ["MetaURL"]
 group = config ["groupName"]
 
 
