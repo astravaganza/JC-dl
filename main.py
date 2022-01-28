@@ -18,8 +18,6 @@ ssotoken = config ["ssotoken"]
 uniqueID = config ["uniqueID"]
 Request_URL = config ["Request_URL"]
 Meta_URL = config ["MetaURL"]
-group = config ["groupName"]
-
 
 def get_manifest(VideoID):
     headers = {
