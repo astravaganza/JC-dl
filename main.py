@@ -49,14 +49,6 @@ def mod_m3u8(url):
     mod = "/".join(lst)
     return mod
 
-def get_subs(manifest):
-    print ("Getting subtitles.. ")
-    try:
-        srt = "https://snoidcdnems07.cdnsrv.jio.com/jiovod.wdrm.cdn.jio.com/content/entry/wvdata/" + manifest['srt']
-        print (srt)
-        return srt 
-    except KeyError:
-        print ("No subtitles exist for this particular title! Skipping..")
 
 def get_metadata(VideoID):
     response = requests.get (url= Meta_URL + VideoID)
