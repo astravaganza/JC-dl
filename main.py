@@ -34,10 +34,6 @@ def get_manifest(VideoID):
     response = requests.post(url = Request_URL + VideoID , data = '{"uniqueId":"' + uniqueID + '"}' , headers = headers)
     return json.loads(response.text)
 
-def get_mpd(manifest):
-    MPD_High = manifest['mpd']['high']
-    return MPD_High
-
 def get_m3u8(manifest):
     m3u8 = manifest['m3u8']['high']
     return m3u8
@@ -73,7 +69,6 @@ def get_streams(mpd):
     print ("\nSuccessfully downloaded the stream!")
 
 m3u8_url = get_m3u8(manifest)
-mpd_url = get_mpd(manifest)
 nonDRM_m3u8_url = mod_m3u8(m3u8_url)
 get_streams(nonDRM_m3u8_url)
 
