@@ -1,8 +1,0 @@
-Request_URL = "https://prod.media.jio.com/apis/common/v3/playbackrights/get/"
-MetaURL = "https://prod.media.jio.com/apis/common/v3/metamore/get/"
-ssotoken = ""
-uniqueID = ""
-cachePath = ""
-outPath = ""
-OTPSendURL = "https://prod.media.jio.com/apis/common/v3/login/sendotp"
-OTPVerifyURL = "https://prod.media.jio.com/apis/common/v3/login/verifyotp"
