@@ -16,19 +16,10 @@ This tool shall not be abused for purposes which are not archival or educational
 * Install python and run `pip install -r requirements.txt` in your shell
 * Download yt-dlp (from https://github.com/yt-dlp/yt-dlp), aria2c (from https://aria2.github.io/) and the ffmpeg suite (from https://www.ffmpeg.org/download.html)
 (required for [FixupM3u8] task (see https://github.com/yt-dlp/yt-dlp/blob/e04b003e6469db220131812b4894ac2a1d5ee083/yt_dlp/postprocessor/ffmpeg.py#L872))) and place the binaries in the root directory
-* Add your unique SSOtoken and uniqueID to `config.toml` (check [below](https://github.com/astravaganza/JC_dl#adding-config))
+* Login with your Mobile Number and OTP (on first run) as prompted
 * run `python main.py`
 * VideoID can be obtained from the Movie URL (for example: in https://www.jiocinema.com/movies/jaya-ganga?type=0&id=74f26cb06e0111ecb736133f7a349447, `74f26cb06e0111ecb736133f7a349447` is the VideoID). 
 * Let yt-dlp and aria2c download the stream (defaults to the most superior stream) and check the `out` folder for the downloaded movie.
-
-### Adding config
-* Open JioCinema, ensure you are logged in. 
-* Open Devtools (if you're using chrome, Ctrl + Shift + I) 
-![DevTools](https://i.ibb.co/rpQhbF7/image.png)
-* Play some content (keeping DevTools open)
-* Navigate to Network Tab in DevTools and filter by `get`
-![get](https://i.ibb.co/gd2pSj5/image.png)
-* Iterate through the `get` requests till you find the `SSOtoken` and the `uniqueID` in the request headers section. 
 
 ## The Workaround
 Apparently JioCinema hosts their unprotected content on their `jiobeats` CDN, which was apparently also used for JioMusic (??? See https://github.com/vikas5914/JioMusic-API#listen-song). 
