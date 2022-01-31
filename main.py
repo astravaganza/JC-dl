@@ -22,8 +22,8 @@ def load_config():
 
 Request_URL = "https://prod.media.jio.com/apis/common/v3/playbackrights/get/"
 Meta_URL = "https://prod.media.jio.com/apis/common/v3/metamore/get/"
-#cachePath = config ["cachePath"] 
-#outPath = config ["outPath"]
+#cachePath = 
+#outPath = 
 OTPSendURL = "https://prod.media.jio.com/apis/common/v3/login/sendotp"
 OTPVerifyURL = "https://prod.media.jio.com/apis/common/v3/login/verifyotp"
 
@@ -118,7 +118,7 @@ fileName = f'{content_name}.{metadata["year"]}.mp4'
 
 def get_streams(m3u8):
     print ("Downloading A/V")
-    os.system(f'{ytdl_path} {m3u8} --allow-unplayable-formats --downloader aria2c --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings') # + -P TEMP:{cachePath} -P HOME:{outPath})
+    os.system(f'{ytdl_path} {m3u8} --allow-unplayable-formats --downloader aria2c --user-agent "JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio" -q --no-warnings') # + -P TEMP:{cachePath} -P HOME:{outPath}
     os.rename(f'{dirPath}\chunklist [chunklist].mp4', fileName)
     print ("\nSuccessfully downloaded the stream!")
 
