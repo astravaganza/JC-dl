@@ -30,6 +30,10 @@ This tool shall not be abused for purposes which are not archival or educational
 ![get](https://i.ibb.co/gd2pSj5/image.png)
 * Iterate through the `get` requests till you find the `SSOtoken` and the `uniqueID` in the request headers section. 
 
+## The Workaround
+Apparently JioCinema also hosts the content on their `jiobeats` CDN, which was apparently also used for JioMusic (??? See https://github.com/vikas5914/JioMusic-API). 
+Makes no sense for them to have this open but this workaround has been out for quite some time.
+
 ## P. S
 I'm really terrible at coding so consider this as the worst code. Please feel free to open PRs.
 
