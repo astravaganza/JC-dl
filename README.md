@@ -33,6 +33,6 @@ to yt-dlp for basically solving the m3u8 parsing cause I can't write a parser.
 
 ### To-Do
 * Add subtitle support
-* Simplify the config process
+* ~~Simplify the config process~~
 * Add logging
 * Add custom quality support
