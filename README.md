@@ -1,10 +1,10 @@
-# JC_dl
+# JC-dl
 Simple Content downloader for Indian OTT JioCinema (https://www.jiocinema.com/).
 
 *(Currently only supports movies, I haven't looked at TV shows, so if someone wants to open a PR, feel free)*
 
 ## Purpose
-JioCinema offers many rare and old HQ streams of Indian content which is unfortunately hidden behind DRM and cannot be easily saved for archival purposes. This tool bypasses the DRM restrictions and grabs the **Non-DRM** streams (which are ironically sometimes superior to its DRM counterparts) from JioCinema which can be downloaded directly.
+JioCinema offers many rare and old HQ streams of Indian content which is unfortunately hidden behind DRM and cannot be easily saved for archival purposes. This tool bypasses the DRM restrictions and grabs the **Non-DRM** streams (which are ironically sometimes superior to their DRM counterparts) from JioCinema which can be downloaded directly.
 
 ### Prerequisites
 An account on JioCinema and the most basic skills.
