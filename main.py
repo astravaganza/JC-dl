@@ -22,8 +22,6 @@ def load_config():
 
 Request_URL = "https://prod.media.jio.com/apis/common/v3/playbackrights/get/"
 Meta_URL = "https://prod.media.jio.com/apis/common/v3/metamore/get/"
-#cachePath = 
-#outPath = 
 OTPSendURL = "https://prod.media.jio.com/apis/common/v3/login/sendotp"
 OTPVerifyURL = "https://prod.media.jio.com/apis/common/v3/login/verifyotp"
 
@@ -70,15 +68,12 @@ def load_creds(creds):
 
 def get_manifest(VideoID):
     headers = {
-    'authority': 'prod.media.jio.com',
-    'pragma': 'no-cache',
     'ssotoken': ssotoken,
     'bitrates': 'true',
     'os': 'Android',
     'user-agent': 'JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio',
     'content-type': 'application/json',
     'accept': 'application/json, text/plain, */*',
-    'devicetype': 'tv',
     }
     response = requests.post(url = Request_URL + VideoID , data = '{"uniqueId":"' + uniqueID + '"}' , headers = headers)
     return json.loads(response.text)
@@ -95,7 +90,7 @@ def mod_m3u8(url):
     return mod
 
 def get_metadata(VideoID):
-    response = requests.get (url= Meta_URL + VideoID)
+    response = requests.get(url = Meta_URL + VideoID, headers = {'os': 'Android'})
     return json.loads(response.text)
 
 print ('JioCinema Content Downloading Tool')
