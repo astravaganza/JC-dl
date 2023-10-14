@@ -11,17 +11,17 @@ ytdl_path = dirPath + "\yt-dlp.exe"
 
 # define 
 def load_config():
-    global ssotoken, uniqueID
+    global accesstoken, devid
     with open ("creds.txt", "r") as f:
         try:
             Creds = json.load(f)
-            ssotoken = Creds['ssotoken']
-            uniqueID = Creds['uniqueID']
+            accesstoken = Creds['accesstoken']
+            devid = Creds['deviceid']
         except json.JSONDecodeError:
-            ssotoken = ''
-            uniqueID = ''    
+            accesstoken = ''
+            devid = ''    
 
-Request_URL = "https://prod.media.jio.com/apis/common/v3/playbackrights/get/"
+Request_URL = "https://apis-jiovoot.voot.com/playbackjv/v4/"
 Meta_URL = "https://prod.media.jio.com/apis/common/v3/metamore/get/"
 OTPSendURL = "https://auth-jiocinema.voot.com/userservice/apis/v4/loginotp/send"
 OTPVerifyURL = "https://auth-jiocinema.voot.com/userservice/apis/v4/loginotp/verify"
@@ -84,9 +84,7 @@ def login(mobile_number):
             "number": base64.b64encode(f"+91{mobile_number}".encode()).decode(),
             "otp": OTP
         })
-        print(verify.content)
         creds = json.loads(verify.content)
-        
         load_creds(creds)
     else:
         print ("Wrong/Unregistered Mobile Number (ensure there's no +91 or 0 in the beginning)")
@@ -94,14 +92,14 @@ def login(mobile_number):
 
 def load_creds(creds):
     try:
-        ssotoken = creds['ssoToken']
-        uniqueID = creds['uniqueId']
+        accesstoken = creds['authToken']
+        devid = creds['deviceId']
     except KeyError:
         print ("Wrong OTP, Try again!")
         sys.exit()
     Creds = {
-        "ssotoken" : ssotoken,
-        "uniqueID" : uniqueID
+        "accesstoken" : accesstoken,
+        "deviceid" : devid
     }
     with open("creds.txt", "w") as f:
         f.write(json.dumps(Creds))
@@ -135,7 +133,7 @@ def get_metadata(VideoID):
 
 print ('JioCinema Content Downloading Tool')
 load_config()
-if ssotoken == "" and uniqueID == "":
+if accesstoken == "" and devid == "":
     M_No = input ('Enter Mobile Number: ')
     login (M_No)
     load_config()
