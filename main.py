@@ -106,18 +106,50 @@ def load_creds(creds):
 
 def get_manifest(VideoID):
     headers = {
-    'ssotoken': ssotoken,
-    'bitrates': 'true',
-    'os': 'Android',
-    'user-agent': 'JioOnDemand/1.5.2.1 (Linux;Android 4.4.2) Jio',
-    'content-type': 'application/json',
-    'accept': 'application/json, text/plain, */*',
+    "Accesstoken": accesstoken,
+    "Appname": "RJIL_JioCinema",
+    "Versioncode": "2310130",
+    "Deviceid": devid,
+    "x-apisignatures": "o668nxgzwff",
+    "X-Platform": "androidweb",
+    "X-Platform-Token": "web",
+    "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
     }
-    response = requests.post(url = Request_URL + VideoID , data = '{"uniqueId":"' + uniqueID + '"}' , headers = headers)
+    response = requests.post(url=Request_URL + VideoID, headers=headers, json={
+            "4k": False,
+            "ageGroup": "18+",
+            "appVersion": "3.4.0",
+            "bitrateProfile": "xhdpi",
+            "capability": {
+                "drmCapability": {
+                    "aesSupport": "yes",
+                    "fairPlayDrmSupport": "none",
+                    "playreadyDrmSupport": "none",
+                    "widevineDRMSupport": "none"
+                },
+                "frameRateCapability": [
+                    {
+                    "frameRateSupport": "60fps",
+                    "videoQuality": "2160p"
+                    }
+                ]
+            },
+            "continueWatchingRequired": True,
+            "dolby": True,
+            "downloadRequest": False,
+            "hevc": False, # adjust accordingly
+            "kidsSafe": False,
+            "manufacturer": "Windows",
+            "model": "Windows",
+            "multiAudioRequired": True,
+            "osVersion": "10",
+            "parentalPinValid": True,
+            "x-apisignatures": "o668nxgzwff"
+        })
     return json.loads(response.text)
 
 def get_m3u8(manifest):
-    m3u8 = manifest['m3u8']['high']
+    m3u8 = manifest['data']['playbackUrls'][1]['url']
     return m3u8
 
 def mod_m3u8(url):
@@ -127,10 +159,6 @@ def mod_m3u8(url):
     mod = "/".join(lst)
     return mod
 
-def get_metadata(VideoID):
-    response = requests.get(url = Meta_URL + VideoID, headers = {'os': 'Android'})
-    return json.loads(response.text)
-
 print ('JioCinema Content Downloading Tool')
 load_config()
 if accesstoken == "" and devid == "":
@@ -139,15 +167,15 @@ if accesstoken == "" and devid == "":
     load_config()
 VideoID = input ('Enter VideoID: ')
 manifest = get_manifest(VideoID)
-metadata = get_metadata(VideoID)
+
 try:
-    content_name = metadata['name']
+    content_name = manifest['data']['name']
 except KeyError:
     print ("Incorrect/Malformed VideoID")
     sys.exit()
-print (f'Downloading: {content_name} | {metadata["year"]} | {metadata["language"]}')
+print (f'Downloading: {content_name} |  {manifest["data"]["defaultLanguage"]}')
 # print (f'Subtitles available: {metadata["subtitle"]}')    
-fileName = f'{content_name}.{metadata["year"]}.mp4'
+fileName = f'{content_name}.mp4'
 
 def get_streams(m3u8):
     print ("Downloading A/V")
